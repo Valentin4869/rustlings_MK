@@ -43,16 +43,16 @@ impl From<&str> for Person {
         if s.len() == 0 {
             Person::default()
         } else {
-            let elements: Vec<_> = s.split(",").collect();
-            if elements.len() != 2 {
+            let e: Vec<_> = s.split(",").collect();
+            if e.len() != 2 {
                 return Person::default();
             }
-            let name = elements[0].to_string();
+            let name = e[0].to_string();
             if name.len() == 0 {
                 return Person::default();
             }
-            let maybe_age = elements[1].parse::<usize>();
-            match maybe_age {
+            let ageq = e[1].parse::<usize>();
+            match ageq {
                 Ok(age) => Person { name, age },
                 _ => Person::default(),
             }
